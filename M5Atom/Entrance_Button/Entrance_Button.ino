@@ -17,17 +17,17 @@ long tmptime;
 
 void btnPressed(){
   cnt++;
-  Serial.println("button pressed ");
+  Serial.println("button pressed. access to " + url);
   http.begin(url);
   httpcode = http.GET();
   if (httpcode > 0){
     payload = http.getString();
     Serial.println(payload);
-    http.end();
   }
   else{
     Serial.println("failed");
   }
+  http.end();
   return;
 }
 
